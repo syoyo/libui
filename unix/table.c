@@ -511,6 +511,9 @@ uiTable *uiNewTable(uiTableParams *p)
 	t->tv = GTK_TREE_VIEW(t->treeWidget);
 	// TODO set up t->tv
 
+	//don't select/highlight rows
+	gtk_tree_selection_set_mode(gtk_tree_view_get_selection(t->tv), GTK_SELECTION_NONE);
+
 	gtk_container_add(t->scontainer, t->treeWidget);
 	// and make the tree view visible; only the scrolled window's visibility is controlled by libui
 	gtk_widget_show(t->treeWidget);
